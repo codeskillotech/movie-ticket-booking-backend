@@ -17,8 +17,14 @@ app.use(cors());
 app.use(express.json()); // to parse JSON body
 
 // Routes
+// Routes
+const authRoutes = require("./routes/authRoutes");
+const movieRoutes = require("./routes/movieRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 
-
+app.use("/api/bookings", bookingRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/movies", movieRoutes);
 // Health check
 app.get("/", (req, res) => {
   res.send("API is running...");
